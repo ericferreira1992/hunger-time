@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "269905203680",
+    "firebase_url": "https://eric-online-store.firebaseio.com",
+    "project_id": "eric-online-store",
+    "storage_bucket": "eric-online-store.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:269905203680:android:2b2b97ffc2c548db",
+        "android_client_info": {
+          "package_name": "com.br.eric.virtual_store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "269905203680-5c97dg0u8bgcvh3l34nt6g9cdfnmgq3f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7t0ZXiY4evTkEPCetj3dpMWFHV1PhqCw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "269905203680-5c97dg0u8bgcvh3l34nt6g9cdfnmgq3f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
