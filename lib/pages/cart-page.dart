@@ -67,7 +67,7 @@ class _CartPageState extends State<CartPage> {
                   ),
                   SizedBox(height: 15),
                   Text(
-                    'Faça o login para adicionar prdutos',
+                    'Faça o login para adicionar produtos',
                     style: TextStyle(
                       fontSize: 22,
                       color: Colors.black87,
@@ -137,7 +137,7 @@ class _CartPageState extends State<CartPage> {
                 if (cartModel.products.length > 0) {
                   showDialog(
                     context: context,
-                    builder: (context) {
+                    builder: (_context) {
                       return Helper.getConfirmDialog(
                         context: context,
                         title: 'Finalizar pedido',
