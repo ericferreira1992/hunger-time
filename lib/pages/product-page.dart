@@ -141,6 +141,7 @@ class _ProductPageState extends State<ProductPage> {
                               cartProduct.quantity = 1;
                               cartProduct.pid = product.id;
                               cartProduct.category = product.category;
+                              cartProduct.product = product;
 
                               _isLoading = true;
                               cartModel.addCartProduct(cartProduct).then(

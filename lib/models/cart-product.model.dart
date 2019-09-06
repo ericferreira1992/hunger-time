@@ -20,16 +20,14 @@ class CartProduct {
     size = document.data['size'];
   }
 
-  Map<String, dynamic> toMap({bool withProduct = true}) {
+  Map<String, dynamic> toMap() {
     var map = {
       'category': category,
       'pid': pid,
       'quantity': quantity,
       'size': size,
+      'product': product != null ? product.toResumeMap() : null
     };
-
-    if (withProduct)
-      map['product'] = product != null ? product.toResumeMap() : null;
 
     return map;
   }

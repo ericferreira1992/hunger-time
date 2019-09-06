@@ -269,7 +269,7 @@ class CartScopedModel extends Model {
 
           var refOrder = await Firestore.instance.collection('orders').add({
             'clientId': userModel.firebaseUser.uid,
-            'products': products.map((cp) => cp.toMap(withProduct: false)).toList(),
+            'products': products.map((cp) => cp.toMap()).toList(),
             'productsPrice': productsPrice,
             'shipPrice': shipPrice,
             'discount': discount,

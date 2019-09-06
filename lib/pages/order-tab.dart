@@ -29,9 +29,10 @@ class OrdersTab extends StatelessWidget {
           if (!snapshot.hasData)
             return Center(child: CircularProgressIndicator());
 
-          return ListView(
-            children: snapshot.data.documents.map((doc) => OrderTile()).toList(),
-          );
+          if(snapshot.data.documents.length > 0)
+            return ListView(children: snapshot.data.documents.map((doc) => OrderTile(doc.documentID)).toList());
+          else
+            return _getNoOrdersPage();
         },
       );
     }
@@ -72,6 +73,35 @@ class OrdersTab extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage()));
               },
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _getNoOrdersPage() {
+    return Container(
+      padding: EdgeInsets.all(30),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Icon(
+            Icons.sentiment_dissatisfied,
+            color: Theme.of(context).primaryColor,
+            size: 80,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            child: Text(
+              'Você ainda nao fez nenhum pedido.',
+              style: TextStyle(
+                fontSize: 22,
+                color: Colors.black54,
+                fontWeight: FontWeight.w500
+              ),
+              textAlign: TextAlign.center,
             ),
           )
         ],

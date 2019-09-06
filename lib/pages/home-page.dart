@@ -18,9 +18,9 @@ class HomePage extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       children: <Widget>[
         Scaffold(
-          body: HomeTab(),
           drawer: CustomDrawer(_pageController),
           floatingActionButton: CartButton(),
+          body: HomeTab(),
         ),
         Scaffold(
           appBar: AppBar(
@@ -37,6 +37,7 @@ class HomePage extends StatelessWidget {
             centerTitle: true
           ),
           drawer: CustomDrawer(_pageController),
+          floatingActionButton: CartButton(),
           body: ShopsTab(),
         ),
         Scaffold(
@@ -45,6 +46,7 @@ class HomePage extends StatelessWidget {
             centerTitle: true
           ),
           drawer: CustomDrawer(_pageController),
+          floatingActionButton: CartButton(),
           body: OrdersTab(),
         )
       ],
