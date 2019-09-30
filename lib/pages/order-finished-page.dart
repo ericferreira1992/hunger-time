@@ -1,57 +1,69 @@
 import 'package:flutter/material.dart';
 
-class OrderFinishedPage extends StatefulWidget {
+
+class OrderFinishedPage extends StatelessWidget {
   String orderId;
 
   OrderFinishedPage(this.orderId);
 
   @override
-  _OrderFinishedPageState createState() => _OrderFinishedPageState();
+  Widget build(BuildContext context) {
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Pedido'),
+        centerTitle: true,
+      ),
+      backgroundColor: Colors.white,
+      body: _OrderFinishedPageBody(orderId)
+    );
+  }
 }
 
-class _OrderFinishedPageState extends State<OrderFinishedPage> with SingleTickerProviderStateMixin {
+class _OrderFinishedPageBody extends StatefulWidget {
+  String orderId;
 
+  _OrderFinishedPageBody(this.orderId);
+
+  @override
+  _OrderFinishedPageBodyState createState() => _OrderFinishedPageBodyState();
+}
+
+class _OrderFinishedPageBodyState extends State<_OrderFinishedPageBody> with SingleTickerProviderStateMixin {
   String get orderId => widget.orderId;
 
   AnimationController _controller;
+
   @override
   void initState() {
-
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 1200),
+      duration: const Duration(milliseconds: 1000),
       vsync: this
-    )..forward();
+    );
+    _controller.forward();
+    _controller.addListener(() => setState((){}));
 
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Pedido'),
-        centerTitle: true
-      ),
-      backgroundColor: Colors.white,
-      body: Center(
-        child: FadeTransition(
-          opacity: CurvedAnimation(parent: _controller, curve: Interval(0.0, 1.0)),
-          child: Padding(
-            padding: EdgeInsets.only(left: 25, right: 25, bottom: 50),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+    return FadeTransition(
+      opacity: CurvedAnimation(parent: _controller, curve: Interval(0.0, 1.0)),
+      child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Column(
               children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    ..._getDoneContainer(),
-                    ..._getTexts()
-                  ],
-                )
+                ..._getDoneContainer(),
+                ..._getTexts()
               ],
             )
-          )
-        )
-      ),
+          ],
+        ),
+      )
     );
   }
 
